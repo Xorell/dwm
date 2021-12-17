@@ -223,7 +223,7 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,		XK_c,		spawn,		SHCMD("teams") },
 	/* V is automatically bound above in STACKKEYS */
 	{ MODKEY,			XK_b,		togglebar,	{0} },
-	/* { MODKEY|ShiftMask,		XK_b,		spawn,		SHCMD("") }, */
+	{ MODKEY|ShiftMask,		XK_b,		spawn,		SHCMD("setbg") },
 	{ MODKEY,			XK_n,		togglescratch,	{.ui = 2} }, /* Scratchpad notes */
 	/* { MODKEY|ShiftMask,		XK_n,		spawn,		SHCMD(TERMINAL " -e newsboat; pkill -RTMIN+6 dwmblocks") }, */
 	/* { MODKEY,			XK_m,		spawn,		SHCMD(TERMINAL " -e ncmpcpp") }, */
