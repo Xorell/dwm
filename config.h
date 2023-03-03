@@ -101,7 +101,8 @@ static const Layout layouts[] = {
     { MOD,  XK_v,   ACTION##stack,  {.i = 0 } },
 
 /* helper for spawning shell commands in the pre dwm-5.0 fashion */
-#define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
+#define SHCMD(cmd)   { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
+#define BRGCTRL(amt) { .v = (const char*[]){ "/usr/bin/brightnessctl", "set", amt, NULL } }
 
 /* commands */
 static const char *termcmd[]  = { TERMINAL, NULL };
@@ -271,6 +272,10 @@ static Key keys[] = {
     { 0,                  XF86XK_AudioForward,      spawn,          SHCMD("mpc seek +10")                                            },
     { 0,                  XF86XK_AudioMedia,        spawn,          SHCMD(TERMINAL " -e ncmpcpp")                                    },
     { 0,                  XF86XK_AudioMicMute,      spawn,          SHCMD("pactl set-source-mute @DEFAULT_SOURCE@ toggle")           },
+	{ 0,                  XF86XK_MonBrightnessDown, spawn,          BRGCTRL("10%-") },
+	{ ShiftMask,          XF86XK_MonBrightnessDown, spawn,          BRGCTRL("5%-") },
+	{ 0,                  XF86XK_MonBrightnessUp,   spawn,          BRGCTRL("+10%") },
+	{ ShiftMask,          XF86XK_MonBrightnessUp,   spawn,          BRGCTRL("+5%") },
     { 0,                  XF86XK_PowerOff,          spawn,          SHCMD("sysact")                                                  },
     { 0,                  XF86XK_Calculator,        spawn,          SHCMD(TERMINAL " -e speedcrunch -l")                             },
     { 0,                  XF86XK_Sleep,             spawn,          SHCMD("sudo -A zzz")                                             },
@@ -287,8 +292,6 @@ static Key keys[] = {
             "synclient TouchpadOff=1")                                                                                               },
     { 0,                  XF86XK_TouchpadOff,       spawn,          SHCMD("synclient TouchpadOff=1")                                 },
     { 0,                  XF86XK_TouchpadOn,        spawn,          SHCMD("synclient TouchpadOff=0")                                 },
-    { 0,                  XF86XK_MonBrightnessUp,   spawn,          SHCMD("xbacklight -inc 15")                                      },
-    { 0,                  XF86XK_MonBrightnessDown, spawn,          SHCMD("xbacklight -dec 15")                                      },
 
  /* { MODKEY|Mod4Mask,              XK_h,      incrgaps,       {.i = +1 } },
   */
