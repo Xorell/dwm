@@ -3,17 +3,17 @@
 /* Constants */
 /* #define TERMINAL "xfce4-terminal" */
 /* #define TERMCLASS "Xfce4-terminal" */
-#define TERMINAL "st"
-#define TERMCLASS "St"
+#define TERMINAL  "alacritty"
+#define TERMCLASS "Alacritty"
 #define BROWSER "librewolf"
 
 /* appearance */
-static unsigned int borderpx  = 3;        /* border pixel of windows */
+static unsigned int borderpx                = 4;        /* border pixel of windows */
 static unsigned int snap      = 32;       /* snap pixel */
 static unsigned int gappih    = 20;       /* horiz inner gap between windows */
 static unsigned int gappiv    = 10;       /* vert inner gap between windows */
 static unsigned int gappoh    = 10;       /* horiz outer gap between windows and screen edge */
-static unsigned int gappov    = 30;       /* vert outer gap between windows and screen edge */
+static unsigned int gappov                  = 15;       /* vert outer gap between windows and screen edge */
 static int swallowfloating    = 0;        /* 1 means swallow floating windows by default */
 static int smartgaps          = 0;        /* 1 means no outer gap when there is only one window */
 static int showbar            = 1;        /* 0 means no bar */
@@ -35,16 +35,20 @@ typedef struct {
     const char *name;
     const void *cmd;
 } Sp;
-/* const char *spcmd1[] = {TERMINAL, "-n", "spterm", "-g", "120x34", NULL }; */
-/* const char *spcmd2[] = {TERMINAL, "-n", "spcalc", "-f", "monospace:size=16", "-g", "50x20", "-e", "bc", "-lq", NULL }; */
-const char *spcmd1[] = {TERMINAL, "-n", "spterm", "-g", "120x34", NULL };
-const char *spcmd2[] = {TERMINAL, "-n", "spcalc", "-f", "monospace:size=16", "-g", "50x20", "-e", "speedcrunch", "-lq", NULL };
-const char *spcmd3[] = {TERMINAL, "-n", "spnote", "-g", "120x34", "-e", "notorious", NULL };
+
+const char *spcmd1[] = { "st", "-n", "spterm", "-g", "120x34", NULL };
+const char *spcmd2[] = { "st", "-n", "spcalc", "-f", "monospace:size=16", "-g", "50x20", "-e", "speedcrunch", "-lq", NULL };
+
+/* const char *spcmd1[]      = { TERMINAL, "-T", "spterm", NULL }; */
+/* const char *spcmd2[]      = { TERMINAL, "-T", "spcalc", "-e", "speedcrunch", "-lq", NULL }; */
+
+/* const char *spcmd1[]      = { TERMINAL, "-n", "spterm", "-g", "120x34", NULL }; */
+/* const char *spcmd2[]      = { TERMINAL, "-n", "spcalc", "-f", "monospace:size=16", "-g", "50x20", "-e", "speedcrunch", "-lq", NULL }; */
+
 static Sp scratchpads[] = {
     /* name          cmd  */
     {"spterm",      spcmd1},
     {"spcalc",      spcmd2},
-    {"spnote",      spcmd3},
 };
 
 /* tagging */
